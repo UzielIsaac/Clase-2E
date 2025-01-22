@@ -5,24 +5,29 @@ class Program
 {
     static void Main()
     {
-        // Este programa calcula la calificación total de un alumno basado en tres actividades.
+        // Este programa lee e imprime una serie de números distintos de cero.
+        // La función termina cuando se introduce un valor cero, que no se imprime.
+        // También muestra la cantidad de números ingresados (sin contar el cero).
 
-        // Se piden las calificaciones de las tres actividades: prácticas (pr), examen (ex) y tareas (ta).
-        Console.Write("Ingresa la calificación de las prácticas: ");
-        double pr = Convert.ToDouble(Console.ReadLine());  // Esta línea recibe la calificación de las prácticas.
+        int numero; // Esta variable almacena el número ingresado por el usuario.
+        int contador = 0; // Esta variable cuenta cuántos números válidos se han leído.
 
-        Console.Write("Ingresa la calificación del examen: ");
-        double ex = Convert.ToDouble(Console.ReadLine());  // Esta línea recibe la calificación del examen.
+        Console.WriteLine("Ingresa números distintos de cero (termina con 0):");
+        
+        do
+        {
+            // Se solicita al usuario que ingrese un número.
+            Console.Write("Ingresa un número: ");
+            numero = Convert.ToInt32(Console.ReadLine()); // Convierte el valor ingresado a un entero.
 
-        Console.Write("Ingresa la calificación de las tareas: ");
-        double ta = Convert.ToDouble(Console.ReadLine());  // Esta línea recibe la calificación de las tareas.
+            if (numero != 0) // Esta condición verifica que el número no sea cero.
+            {
+                Console.WriteLine("Número ingresado: " + numero); // Imprime el número ingresado.
+                contador++; // Incrementa el contador porque el número es válido.
+            }
+        } while (numero != 0); // Este ciclo continúa mientras el número sea distinto de cero.
 
-        // Se calcula la calificación total utilizando los porcentajes correspondientes para cada actividad.
-        // 55% para las prácticas, 30% para el examen y 15% para las tareas.
-
-        double calificacion_total = (pr * 0.55) + (ex * 0.30) + (ta * 0.15);  // Esta fórmula calcula la calificación total.
-
-        // El resultado se muestra en pantalla.
-        Console.WriteLine("La calificación total del alumno es: " + calificacion_total);  // Esta línea muestra la calificación total.
+        // Se muestra la cantidad de números válidos leídos.
+        Console.WriteLine("Cantidad de números ingresados: " + contador); // Imprime el número total de entradas válidas.
     }
 }
